@@ -14,7 +14,7 @@
             </div>
             <div>
                 <h2>Je crée un compte</h2>
-                <form>
+                <form enctype="multipart/form-data">
                     <input type="text" name="pseudo" placeholder=" Pseudo">
                     <input type="email" name="email" placeholder=" E-mail">
                     <input type="password" name="password" placeholder=" Mot de passe">
