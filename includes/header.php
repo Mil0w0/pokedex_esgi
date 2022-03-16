@@ -12,6 +12,9 @@
                 <a href="add_pokemon.php">Ajouter un pokémon</a>
             </li>
             <li>
+                <a href="connexion.php">Connexion</a>
+            </li>
+            <li>
                 <a href="#">Mon compte</a>
             </li>
             <li>

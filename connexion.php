@@ -18,6 +18,8 @@
                     <input type="text" name="pseudo" placeholder=" Pseudo">
                     <input type="email" name="email" placeholder=" E-mail">
                     <input type="password" name="password" placeholder=" Mot de passe">
+                    <label for="photo">Image de profil : </label>
+                    <input type="file" name="image" id="photo">
                     <input type="submit" value="Connexion">
                 </form>
             </div>
