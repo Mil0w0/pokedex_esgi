@@ -97,6 +97,36 @@ label{
 
 
 
+/* ----- COLLECTION ----- */
+#collection-main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.collection-card{
+    display: flex;
+    width: 26%;
+    margin: 32px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.collection-text{
+    display: inline-block;
+    width: 40%;
+}
+
+.collection-card > img{
+    display: inline-block;
+    margin: auto 0;
+    width: 50%;
+}
+
+
+
+
+
 /* ----- HEADER ET FOOTER ----- */
 
 header, footer{
