@@ -8,5 +8,5 @@
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="header_footer.css">
+    <link rel="stylesheet" href="styles/header_footer.css">
 </head>
