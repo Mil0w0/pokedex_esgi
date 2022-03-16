@@ -98,7 +98,7 @@ label{
 
 
 /* ----- COLLECTION ----- */
-#collection-main{
+.collection-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -123,6 +123,33 @@ label{
     width: 50%;
 }
 
+
+
+/* ----- PROFILE ----- */
+#profile-main h3 span{
+    font-weight: normal;
+}
+
+#profile-image{
+    display: flex;
+}
+
+#profile-image img{
+    width: 200px;
+    margin-left: 32px;
+}
+
+hr{
+    margin: 32px 0;
+}
+
+section.collection-container{
+    justify-content: flex-start;
+}
+
+section.collection-container > div{
+    margin-right: 80px;
+}
 
 
 

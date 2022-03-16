@@ -3,7 +3,7 @@
     <?php include('includes/head.php'); ?>
     <body>
         <?php include('includes/header.php'); ?>
-        <main id="collection-main">
+        <main class="collection-container">
             <div class="collection-card">
                 <div class="collection-text">
                     <h4>Aéromite</h4>
