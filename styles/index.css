@@ -1,4 +1,15 @@
 /* ----- REGLAGES GENERAUX ----- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Lato';
+}
+
 h1{
     font-size: 45px;
     text-align: center;
@@ -7,7 +18,7 @@ h1{
 
 main{
     max-width: 1170px;
-    margin: 0 auto;
+    margin: 64px auto 128px;
 }
 
 
@@ -21,32 +32,91 @@ main{
 
 
 
-/* ----- HEADER ET FOOTER ----- */
-
-header, footer{
-    height: 80px;
+/* ----- CREATION DE POKEMON ----- */
+#createpokemon-main form{
     width: 100%;
 }
 
+input[type="text"], input[type="submit"], input[type="password"], input[type="email"]{
+    width: 100%;
+    padding: 16px;
+    margin: 10px 0;
+
+    font-size: 20px;
+    border: solid #888 2px;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+}
+
+::placeholder{
+    font-size: 20px;
+    font-weight: 600;
+    color: #888;
+}
+
+input[type="submit"]{
+    background-color: #4CAF50;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border: 0;
+}
+
+input[type="submit"]:hover{
+    background-color: #008800;
+}
+
+label{
+    font-size: 20px;
+}
+
+
+
+/* ----- HEADER ET FOOTER ----- */
+
 header, footer{
+    display: flex;
+    height: 60px;
+    width: 100%;
+
+    padding: 15px 30px;
+
     background-color: #AAA;
     color: #FFF;
-    padding: 15px 30px;
+}
+
+header{
+    justify-content: space-between;
+    align-items: center;
 }
 
 header > img{
     height: 40px;
 }
 
+nav > ul{
+    display: flex;
+
+    list-style : none;
+}
+
 nav a{
     padding: 0.5em;
+    color: inherit;
+    text-decoration: none;
 }
 
 nav a:hover{
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 footer{
     position: fixed;
     bottom: 0;
+
+    align-items: center;
+    justify-content: center;
 }
