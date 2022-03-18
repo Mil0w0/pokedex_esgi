@@ -32,7 +32,7 @@ main{
 
 
 
-/* ----- CREATION DE POKEMON ----- */
+/* ----- FORMS ----- */
 #createpokemon-main form{
     width: 100%;
 }
@@ -72,6 +72,85 @@ input[type="submit"]:hover{
 label{
     font-size: 20px;
 }
+
+
+
+/* ----- CONNEXION ----- */
+#connexion-main{
+    display: flex;
+}
+
+#connexion-main > div{
+    width: 49%;
+    height: fit-content;
+    border: solid 2px #AAA;
+    padding: 10px;
+}
+
+#connexion-main > div:first-of-type{
+    margin-right: 1%;
+}
+
+#connexion-main > div:last-of-type{
+    margin-left: 1%;
+}
+
+
+
+/* ----- COLLECTION ----- */
+.collection-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.collection-card{
+    display: flex;
+    width: 26%;
+    margin: 32px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.collection-text{
+    display: inline-block;
+    width: 40%;
+}
+
+.collection-card > img{
+    display: inline-block;
+    margin: auto 0;
+    width: 50%;
+}
+
+
+
+/* ----- PROFILE ----- */
+#profile-main h3 span{
+    font-weight: normal;
+}
+
+#profile-image{
+    display: flex;
+}
+
+#profile-image img{
+    width: 200px;
+    margin-left: 32px;
+}
+
+hr{
+    margin: 32px 0;
+}
+
+section.collection-container{
+    justify-content: flex-start;
+}
+
+section.collection-container > div{
+    margin-right: 80px;
+}
+
 
 
 

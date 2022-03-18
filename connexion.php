@@ -6,20 +6,27 @@
         <main id="connexion-main">
             <div>
                 <h2>Je possède un compte</h2>
-                <form>
+                <form method="POST" action="verifications/verif_connexion.php">
                     <input type="email" name="email" placeholder=" E-mail">
                     <input type="password" name="password" placeholder=" Mot de passe">
                     <input type="submit" value="Connexion">
                 </form>
+                
             </div>
             <div>
                 <h2>Je crée un compte</h2>
-                <form>
+                <form enctype="multipart/form-data" method="POST" action="verifications/verif_inscription.php">
                     <input type="text" name="pseudo" placeholder=" Pseudo">
                     <input type="email" name="email" placeholder=" E-mail">
                     <input type="password" name="password" placeholder=" Mot de passe">
-                    <input type="submit" value="Connexion">
+                    <label for="photo">Image de profil : </label>
+                    <input type="file" name="image" id="photo">
+                    <input type="submit" value="Inscription">
                 </form>
+                <?php 
+                    if(isset($_GET['alert']) && !empty($_GET['alert'])){ 
+                        echo '<h1>'. $_GET['alert'] .'</h1>' ;} 
+                ?>
             </div>
         </main>
         <?php include('includes/footer.php'); ?>
