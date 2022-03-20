@@ -7,7 +7,7 @@ include('../includes/config.php');
 //Vérification des champs vides 
 //
 
-if(empty($_POST['email']) || empty($_POST['password']) || empty($_POST['pseudo'] || empty($_POST['image']))){
+if(empty($_POST['email']) || empty($_POST['password']) || empty($_POST['pseudo'])){
 	header('location: ../connexion.php?alert=Vous devez remplir tous les champs');
 	exit;
 }
@@ -62,12 +62,28 @@ if(count ($results) != 0) {
 
 /*Vérification mdp : min 8 caractères dont une majuscule, 
 une minuscule et un chiffre.*/
+$mdp = $_POST['password'] ;
+$verifs = '/^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$/';
+//$verifs est le "masque" que l'on recherche dans le mot de passe.
+//syntaxe de base : '/^ blabla $/'
+//dans blabla on retrouve les regex comme (.*[0-9]) 
+// le . => n'importe quel char. et le .* => n'importe quel nb de char.
+//{x,y} => min x char, max y. ici pas de max.
+
+
+if (!preg_match($verifs, $mdp)){	
+	header('location: ../connexion.php?alert=Mot de passe trop faible');
+    exit;
+}
+
+// preg_match() retourne 1 si ça match
+
 
 
 
 //Vérification image : fichier uploadé est une image et ne dépasse pas 1Mo.
 //
-var_dump($_FILES["image"]);
+// var_dump($_FILES["image"]);
 if($_FILES['image']['error'] != 4 ){
 
 	//si le fichier n'est pas du bon type : pas dans le tableau de type alors redirection avec message
