@@ -79,8 +79,6 @@ if (!preg_match($verifs, $mdp)){
 // preg_match() retourne 1 si ça match
 
 
-
-
 //Vérification image : fichier uploadé est une image et ne dépasse pas 1Mo.
 //
 // var_dump($_FILES["image"]);
@@ -91,7 +89,8 @@ if($_FILES['image']['error'] != 4 ){
 	$acceptable = [
 		'image/jpeg',
 		'image/gif',
-		'image/png'
+		'image/png',
+		
 	];
 
 	if (!in_array($_FILES['image']['type'], $acceptable)){
@@ -107,20 +106,51 @@ if($_FILES['image']['error'] != 4 ){
 		header('location: ../connexion.php?alert=Image trop lourde');
 		exit;
     }
+
+	//ENREGISTREMENT DE L'IMAGE 
+	$path = 'uploads';
+
+	if(!file_exists($path)){
+		mkdir($path, 0777); //chmod 777
+	}
+
+	$fileName = $_FILES['image']['name'];
+
+	$array= explode('.', $fileName);
+
+	$extension = end($array);
+
+	$fileName ='img-' . time() . '.' . $extension ;
+
+	$destination = $path . '/' . $fileName ;
+
+	//On enregistre le fichier envoyé dans le serveur
+	move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+
 }
 
 
-//SI TOUT VA BIEN : 
+
+//SI TOUT VA BIEN, DIRECTION BDD: 
 //
 $q = 'INSERT INTO user(pseudo,email,password,image) VALUES (:pseudo, :email, :password, :image)'; 
 $req = $bdd->prepare($q); 
 
-$req->execute([	
+$result = $req->execute([	
 				'pseudo' => $_POST['pseudo'],
 				'email' => $_POST['email'],
-				'password' => $_POST['password'],
-				'image' => isset($fileName) ? $fileName : 'nope' 
+				'password' => hash('sha512', $_POST['password']),
+				'image' => isset($fileName) ? $fileName : 'NO_PIC' 
 			]);
 
+//- Si connexion/inscription réussie, redirection vers la page d’accueil, sinon retour au 
+//formulaire avec message d’erreur
+
+if(!$result){
+	header('location: ../connexion.php?alert=Erreur lors de l\'inscription');
+	exit;
+} else {
+	header('location: ../index.php?alert=Compte créé avec succès.');
+}
 
     ?>
