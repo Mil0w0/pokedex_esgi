@@ -1,4 +1,7 @@
+<?php  include('includes/connexion_check.php')?>
+
 <!DOCTYPE html>
+
 <html>
     <?php include('includes/head.php'); ?>
     <body>

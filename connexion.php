@@ -23,11 +23,12 @@
                     <input type="file" name="image" id="photo">
                     <input type="submit" value="Inscription">
                 </form>
-                <?php 
-                    if(isset($_GET['alert']) && !empty($_GET['alert'])){ 
-                        echo '<h1>'. $_GET['alert'] .'</h1>' ;} 
-                ?>
+                
             </div>
+            <?php 
+                 if(isset($_GET['alert']) && !empty($_GET['alert'])){ 
+                     echo '<h1>'. $_GET['alert'] .'</h1>' ;} 
+            ?>
         </main>
         <?php include('includes/footer.php'); ?>
     </body>
