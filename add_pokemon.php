@@ -7,7 +7,11 @@
         <?php include('includes/header.php'); ?>
         <main id="createpokemon-main">
             <h1>ajouter un pokemon</h1>
-            <form enctype="multipart/form-data" method="POST">
+            <?php  
+                if(isset($_GET['alert']) && !empty($_GET['alert']))
+                { echo '<h3>'. $_GET['alert'] .'</h3>' ;} 
+            ?>
+            <form enctype="multipart/form-data" method="POST" action="verifications/verif_pokemon.php">
                 <input type="text" name="nom" placeholder=" Nom">
                 <input type="text" name="pv" placeholder=" PV">
                 <input type="text" name="attaque" placeholder=" Attaque">
