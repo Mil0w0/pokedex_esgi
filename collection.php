@@ -10,7 +10,7 @@
 
         <?php
 
-        $q = 'SELECT nom, pv, attaque, defense, vitesse, image FROM pokemon' ; 
+        $q = 'SELECT nom, pv, attaque, defense, vitesse, image FROM pokemon ORDER BY nom' ; 
         $req = $bdd->query($q); // Requête non préparée
         // Récupération des résultats de la requête SELECT
         $results = $req->fetchAll(PDO::FETCH_ASSOC);
