@@ -1,5 +1,5 @@
 <?php  include('includes/connexion_check.php');
-var_dump($_SESSION) ;
+// var_dump($_SESSION) ;
 ?>
 
 <!DOCTYPE html>

@@ -26,7 +26,8 @@ if(count ($results) != 0) {
     header('location: ../add_pokemon.php?alert=Ce nom de pokémon est déjà utilisé !');
     exit;
 }
-
+// IMAGE PAS TROP LOURDE
+//
 if($_FILES['image']['size'] > 1024*1024*1 ) {
     header('location: ../add_pokemon.php?alert=Image trop lourde');
     exit;
@@ -49,7 +50,9 @@ $fileName ='img-pokemon-' . time() . '.' . $extension ;
 
 $destination = $path . '/' . $fileName ;
 
+//
 //On enregistre le fichier envoyé dans le serveur
+//
 move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 
 // var_dump($_SESSION['email']);
@@ -58,7 +61,6 @@ move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 $query = 'SELECT id FROM user WHERE email = "' . $_SESSION['email'] .'"';
 $req = $bdd->query($query);
 $id_ = $req->fetchAll(PDO::FETCH_ASSOC);
-
 
 $id_user = $id_[0]['id'] ;
 
@@ -77,7 +79,7 @@ $result = $req -> execute([
     'id_user' => $id_user 
 ]);
 
-header('location :profile.php');
+header('location: ../profile.php');
 
 ?>
 
