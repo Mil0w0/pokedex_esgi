@@ -1,5 +1,6 @@
 <?php  include('includes/connexion_check.php');
-// var_dump($_SESSION) ;
+include('includes/config.php');
+//var_dump($_SESSION) ;
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +23,34 @@
             <hr>
             <h2>Mes pokemons</h2>
             <section class="collection-container">
-                <div class="collection-card">
-                <div class="collection-text">
+            <?php
+            
+            
+                $q = 'SELECT nom, pv, attaque, defense, vitesse, image FROM pokemon WHERE id_user =' . $_SESSION['id_user'] ; 
+                $req = $bdd->query($q); // Requête non préparée
+                // Récupération des résultats de la requête SELECT
+                $results = $req->fetchAll(PDO::FETCH_ASSOC);
+
+                //var_dump($results);
+
+
+                foreach($results as $key => $pokemon) {
+                    echo '<div class="collection-card">
+                    <div class="collection-text">
+                    <h4>'. $pokemon['nom'] . '</h4>';
+                            echo ' <p>PV : '. $pokemon['pv'] .'</p>';
+                            echo ' <p>Attaque : '. $pokemon['attaque'] .'</p> ';
+                            echo ' <p>Défense : '. $pokemon['defense'] .'</p>';
+                            echo ' <p>Vitesse : '. $pokemon['vitesse'] .'</p>';
+                            echo '</div>' ;
+                            echo ' <img src="verifications/uploads/pokemon/' . $pokemon['image'] . '" alt="image du pokemon">';
+                            echo '</div>';
+                    }
+            ?>
+            
+        
+            <!-- Scared to delete old template -->
+                <!-- <div class="collection-text">
                     <h4>Aéromite</h4>
                     <p>PV</p>
                     <p>Attaque</p>
@@ -121,17 +148,7 @@
                     <p>Vitesse</p>
                 </div>
                 <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
+            </div> -->
             </section>
         </main>
         <?php include('includes/footer.php'); ?>

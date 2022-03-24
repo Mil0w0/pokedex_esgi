@@ -44,13 +44,13 @@ if(count($results) == 0) {
 session_start();
 $_SESSION['email'] = $_POST['email'];
 
-$q = 'SELECT pseudo,image FROM user WHERE email = "' . $_SESSION['email'] . '"'; 
+$q = 'SELECT pseudo,image,id FROM user WHERE email = "' . $_SESSION['email'] . '"'; 
 $req = $bdd->query($q); 
 $results =  $req->fetchAll();
 
 $_SESSION['pseudo'] = $results[0]['pseudo'];
 $_SESSION['image'] = 'verifications/uploads/' . $results[0]['image'];
-
+$_SESSION['id_user'] = $results[0]['id'];
 
 
 header('location: ../index.php?alert=Connexion réussie');
