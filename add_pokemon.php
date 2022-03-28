@@ -9,7 +9,7 @@
             <h1>ajouter un pokemon</h1>
             <?php  
                 if(isset($_GET['alert']) && !empty($_GET['alert']))
-                { echo '<h3>'. $_GET['alert'] .'</h3>' ;} 
+                { echo '<h3 class="error">'. $_GET['alert'] .'</h3>' ;} 
             ?>
             <form enctype="multipart/form-data" method="POST" action="verifications/verif_pokemon.php">
                 <input type="text" name="nom" placeholder=" Nom">

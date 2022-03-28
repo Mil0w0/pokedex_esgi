@@ -1,6 +1,6 @@
 <?php 
 session_start();
-//VERIFICATION AVANT AJOUT NOUVEAU POKEMON
+//VERIFICATIONS AVANT AJOUT NOUVEAU POKEMON
 
 include('../includes/config.php');
 
@@ -55,12 +55,12 @@ if($_FILES['image']['size'] > 1024*1024*1 ) {
 $path = 'uploads/pokemon';
 
 if(!file_exists($path)){
-    mkdir($path, 0777); //chmod 777
+    mkdir($path, 0777); //chmod 777 
 }
 
-$fileName = $_FILES['image']['name'];
+$imageName = $_FILES['image']['name'];
 
-$array= explode('.', $fileName);
+$array= explode('.', $imageName);
 
 $extension = end($array);
 
@@ -73,11 +73,13 @@ $destination = $path . '/' . $fileName ;
 //
 move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 
-// var_dump($_SESSION['email']);
 
 //RECHERCHE DE $id_user
-$query = 'SELECT id FROM user WHERE email = "' . $_SESSION['email'] .'"';
-$req = $bdd->query($query);
+$query = 'SELECT id FROM user WHERE email = :email';
+$req = $bdd->prepare($query);
+$req -> execute ([
+    'email' => $_SESSION['email']
+]);
 $id_ = $req->fetchAll(PDO::FETCH_ASSOC);
 
 $id_user = $id_[0]['id'] ;
@@ -93,7 +95,8 @@ $result = $req -> execute([
     'attaque' => $_POST['attaque'],
     'defense' => $_POST['defense'],
     'vitesse' => $_POST['vitesse'],
-    'image' => isset($fileName) ? $fileName : 'default.png',
+    'image' => empty($imageName) == false ? $fileName : 'default.png' ,
+    //Par défault, si le pokémon n'a pas d'image, affiche un oeuf
     'id_user' => $id_user 
 ]);
 

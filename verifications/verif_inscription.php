@@ -108,7 +108,7 @@ if($_FILES['image']['error'] != 4 ){
     }
 
 	//ENREGISTREMENT DE L'IMAGE 
-	$path = 'uploads';
+	$path = 'uploads/';
 
 	if(!file_exists($path)){
 		mkdir($path, 0777); //chmod 777
@@ -119,9 +119,9 @@ if($_FILES['image']['error'] != 4 ){
 	$array= explode('.', $fileName);
 
 	$extension = end($array);
-
+	var_dump($fileName);
 	$fileName ='img-' . time() . '.' . $extension ;
-
+	var_dump($fileName);
 	$destination = $path . '/' . $fileName ;
 
 	//On enregistre le fichier envoyé dans le serveur
@@ -140,10 +140,10 @@ $result = $req->execute([
 				'pseudo' => $_POST['pseudo'],
 				'email' => $_POST['email'],
 				'password' => hash('sha512', $_POST['password']),
-				'image' => isset($fileName) ? $fileName : 'NO_PIC' 
+				'image' => isset($fileName) ? $fileName : '' 
 			]);
 
-//- Si connexion/inscription réussie, redirection vers la page d’accueil, sinon retour au 
+//Si connexion/inscription réussie, redirection vers la page d’accueil, sinon retour au 
 //formulaire avec message d’erreur
 
 if(!$result){
@@ -153,4 +153,4 @@ if(!$result){
 	header('location: ../index.php?alert=Compte créé avec succès.');
 }
 
-    ?>
+     ?>

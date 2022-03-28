@@ -26,8 +26,11 @@ include('includes/config.php');
             <?php
             
             
-                $q = 'SELECT nom, pv, attaque, defense, vitesse, image FROM pokemon WHERE id_user =' . $_SESSION['id_user'] ; 
-                $req = $bdd->query($q); // Requête non préparée
+                $q = 'SELECT nom, pv, attaque, defense, vitesse, image FROM pokemon WHERE id_user = :id' ; 
+                $req = $bdd->prepare($q); 
+                $req -> execute([
+                        'id' => $_SESSION['id_user'] 
+                ]);
                 // Récupération des résultats de la requête SELECT
                 $results = $req->fetchAll(PDO::FETCH_ASSOC);
 
@@ -58,6 +61,7 @@ include('includes/config.php');
                             echo '</div>' ;
                             echo ' <img src="verifications/uploads/pokemon/' . $pokemon['image'] . '" alt="image du pokemon">';
                             echo '</div>';
+                           
                     }
             ?>
     

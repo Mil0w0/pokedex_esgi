@@ -57,6 +57,7 @@ $_SESSION['pseudo'] = $results[0]['pseudo'];
 $_SESSION['image'] = 'verifications/uploads/' . $results[0]['image'];
 $_SESSION['id_user'] = $results[0]['id'];
 
+
 //Redirection si tout va bien
 header('location: ../index.php?alert=Connexion réussie');
 exit;
