@@ -33,7 +33,20 @@ include('includes/config.php');
 
                 //var_dump($results);
 
-
+                //Affichage des cartes pokémons avec toutes les stats.
+                /* Selon le modèle suivant :
+                 <div class="collection-card">
+                    <div class="collection-text">
+                        <h4>Aéromite</h4>
+                        <p>PV</p>
+                        <p>Attaque</p>
+                        <p>Défense</p>
+                        <p>Vitesse</p>
+                    </div>
+                    <img src="images/pikachu.png">
+                </div>
+                */
+                
                 foreach($results as $key => $pokemon) {
                     echo '<div class="collection-card">
                     <div class="collection-text">
@@ -47,108 +60,7 @@ include('includes/config.php');
                             echo '</div>';
                     }
             ?>
-            
-        
-            <!-- Scared to delete old template -->
-                <!-- <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div>
-            <div class="collection-card">
-                <div class="collection-text">
-                    <h4>Aéromite</h4>
-                    <p>PV</p>
-                    <p>Attaque</p>
-                    <p>Défense</p>
-                    <p>Vitesse</p>
-                </div>
-                <img src="images/pikachu.png">
-            </div> -->
+    
             </section>
         </main>
         <?php include('includes/footer.php'); ?>

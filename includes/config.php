@@ -6,6 +6,6 @@ try{
 }catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }
-//Test : on affiche l'erreur s'il y a un pb de connexion.
+//Test : on affiche l'erreur s'il y a un problème de connexion.
 
 ?>

@@ -26,6 +26,24 @@ if(count ($results) != 0) {
     header('location: ../add_pokemon.php?alert=Ce nom de pokémon est déjà utilisé !');
     exit;
 }
+
+// Les champs de stats sont bien des integers:
+//
+$inputName = array('pv', 'attaque', 'defense', 'vitesse');
+
+foreach($inputName as $stat){
+
+    if (filter_var($_POST[$stat], FILTER_VALIDATE_INT) === false){
+        header('location: ../add_pokemon.php?alert=Vous ne pouvez mettre qu\'un nombre dans les champs de statistiques du pokémon');
+        exit;    
+        
+    }    
+    //Pour chaque champ que l'on veut vérifier, si ce n'est pas un nombre, on redirige.
+}
+
+
+
+
 // IMAGE PAS TROP LOURDE
 //
 if($_FILES['image']['size'] > 1024*1024*1 ) {
@@ -64,7 +82,7 @@ $id_ = $req->fetchAll(PDO::FETCH_ASSOC);
 
 $id_user = $id_[0]['id'] ;
 
-
+//INSERTION DES VALEURS DANS LA  BDD
 $q = 'INSERT INTO pokemon(nom, pv, attaque, defense, vitesse, image, id_user) VALUES (:nom, :pv, :attaque, :defense, :vitesse, :image, :id_user)';
 
 $req = $bdd -> prepare($q) ;
